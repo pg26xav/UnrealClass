@@ -10,6 +10,8 @@ public class SpaceInvaders : ModuleRules
             new string[]
             {
                 "Core",
+                "EnhancedInput",
+                "InputCore"
             }
         );
 
