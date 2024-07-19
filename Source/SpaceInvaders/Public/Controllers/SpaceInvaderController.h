@@ -13,5 +13,8 @@ UCLASS()
 class SPACEINVADERS_API ASpaceInvaderController : public APlayerController
 {
 	GENERATED_BODY()
+
+public:
+	virtual void SetupInputComponent() override;
 	
 };

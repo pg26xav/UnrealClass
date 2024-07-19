@@ -3,3 +3,7 @@
 
 #include "Controllers/SpaceInvaderController.h"
 
+void ASpaceInvaderController::SetupInputComponent()
+{
+	Super::SetupInputComponent();
+}
