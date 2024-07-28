@@ -7,6 +7,7 @@
 #include "ALivingOrganismSpawner.generated.h"
 
 class ALivingOrganism;
+class AAlien;
 DECLARE_LOG_CATEGORY_EXTERN(LivingOrganism,Log,All);
 
 UCLASS()
@@ -27,7 +28,7 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Spawn parameters")
-	TSubclassOf<ALivingOrganism> OrganismToSpawn;
+	TSubclassOf<AAlien> OrganismToSpawn;
 
 	void Spawn();
 

@@ -2,6 +2,7 @@
 
 #include "Actors/ALivingOrganismSpawner.h"
 #include "Actors/LivingOrganism.h"
+#include "Actors/Alien.h"
 #include "Logging/StructuredLog.h"
 
 DEFINE_LOG_CATEGORY(LivingOrganism);
@@ -45,7 +46,7 @@ void ALivingOrganismSpawner::Spawn()
 		SpawnParams.Owner = this;
 		SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
         
-		TObjectPtr<ALivingOrganism> NewOrganism = World->SpawnActor<ALivingOrganism>(OrganismToSpawn, GetActorLocation(), FRotator::ZeroRotator, SpawnParams);
+		TObjectPtr<AAlien> NewOrganism = World->SpawnActor<AAlien>(OrganismToSpawn, GetActorLocation(), FRotator::ZeroRotator, SpawnParams);
 		if (IsValid(NewOrganism))
 		{
 			NewOrganism->Move();

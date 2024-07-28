@@ -75,6 +75,7 @@ public:
 	// Dynamic
 	UPROPERTY()
 	FDynamicDelegateWithTwoParams DynamicDelegateWithTwoParams;
+	
 	UPROPERTY()
 	FDynamicDelegateRetvalWithTwoParams DynamicDeleRetValWithTwoParams;
 
@@ -84,12 +85,12 @@ public:
 
 	//timer
 	UFUNCTION()
-	void CallEvents();
+	virtual void CallEvents();
 
 	UFUNCTION()
-	void OnHealthUpdated(float oldHealth, float newHealth);
+	virtual void OnHealthUpdated(float oldHealth, float newHealth);
 
 	UFUNCTION()
-	void OnLivingOrganismHit(AActor* SelfActor, AActor* OtherActor, FVector NormalImpulse, const FHitResult& Hit);
+	virtual void OnLivingOrganismHit(AActor* SelfActor, AActor* OtherActor, FVector NormalImpulse, const FHitResult& Hit);
 	
 };
