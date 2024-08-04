@@ -18,7 +18,7 @@ ABullet::ABullet()
 	CollisionComponent->SetSphereRadius(10.0f); 
 	RootComponent = CollisionComponent;
 	
-	CollisionComponent->OnComponentBeginOverlap.AddDynamic(this, &ABullet::OnBulletOverLap);
+	CollisionComponent->OnComponentBeginOverlap.AddDynamic(this, &ThisClass::OnBulletOverLap);
 }
 
 // Called when the game starts or when spawned
