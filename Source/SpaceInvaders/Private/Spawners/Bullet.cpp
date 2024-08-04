@@ -2,10 +2,9 @@
 
 
 #include "Spawners/Bullet.h"
-#include "ClassDefault/SpaceInvaderPawn.h"
-#include "Components/Components/SIScoreComponent.h"
 #include "GameFramework/PlayerState.h"
 #include "Kismet/GameplayStatics.h"
+#include "Pawn/SpaceInvaderPlayer.h"
 
 
 // Sets default values
@@ -46,18 +45,10 @@ void ABullet::OnBulletOverLap(UPrimitiveComponent* OverlappedComponent, AActor* 
 	if (OtherActor && OtherActor != this)
 	{
 		const float dmgDone = UGameplayStatics::ApplyDamage(OtherActor,10.0f,nullptr,this,nullptr);
-		TObjectPtr<ASpaceInvaderPawn> OwningSpacePlayer = Cast<ASpaceInvaderPawn>(GetOwner());
+		TObjectPtr<ASpaceInvaderPlayer> OwningSpacePlayer = Cast<ASpaceInvaderPlayer>(GetOwner());
 		if (IsValid(OwningSpacePlayer))
 		{
 			const TObjectPtr<APlayerState> PlayerState = OwningSpacePlayer->GetPlayerState();
-			if (IsValid(PlayerState))
-			{
-				TObjectPtr<USIScoreComponent> ScoreComponent = PlayerState->FindComponentByClass<USIScoreComponent>();
-				if (IsValid(ScoreComponent))
-				{
-					ScoreComponent->AddScore(10);
-				}
-			}
 		}
 		Destroy();
 	}

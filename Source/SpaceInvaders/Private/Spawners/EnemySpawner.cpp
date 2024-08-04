@@ -25,7 +25,7 @@ void AEnemySpawner::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 }
 
-void AEnemySpawner::Spawn_Implementation()
+void AEnemySpawner::Spawn()
 {
 	FActorSpawnParameters SpawnParams;
 	SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;

@@ -3,7 +3,6 @@
 
 #include "Components/SIHealthComponent.h"
 
-#include "Components/Components/SIScoreComponent.h"
 #include "Net/UnrealNetwork.h"
 
 // Sets default values for this component's properties

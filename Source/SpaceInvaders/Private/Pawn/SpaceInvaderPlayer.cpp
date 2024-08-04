@@ -1,25 +1,26 @@
 // PG26Xav 2024
 
 
-#include "ClassDefault/SpaceInvaderPawn.h"
+#include "Pawn/SpaceInvaderPlayer.h"
 
 #include "EnhancedInputComponent.h"
 #include "ClassDefault/SpaceInvaderGameStateBase.h"
+#include "Components/SIHealthComponent.h"
 #include "Kismet/GameplayStatics.h"
+#include "Spawners/Bullet.h"
 
 // Sets default values
-ASpaceInvaderPawn::ASpaceInvaderPawn()
+ASpaceInvaderPlayer::ASpaceInvaderPlayer()
 {
- 	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+ 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 	HealthComponent = CreateDefaultSubobject<USIHealthComponent>(TEXT("Health Component"));
 	HealthComponent->SetIsReplicated(true);
 	ShootPOS = CreateDefaultSubobject<USceneComponent>(TEXT("Shot POS"));
 	ShootPOS->SetupAttachment(RootComponent);
-	
 }
 
-void ASpaceInvaderPawn::Shoot_Implementation(const FInputActionValue& Value)
+void ASpaceInvaderPlayer::Shoot(const FInputActionValue& Value)
 {
 	FActorSpawnParameters spawnParams;
 	spawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
@@ -27,7 +28,7 @@ void ASpaceInvaderPawn::Shoot_Implementation(const FInputActionValue& Value)
 	GetWorld()->SpawnActor<ABullet>(BulletToSpawn, ShootPOS->GetComponentLocation(), FRotator::ZeroRotator, spawnParams);
 }
 
-void ASpaceInvaderPawn::Destroyed()
+void ASpaceInvaderPlayer::Destroyed()
 {
 	Super::Destroyed();
 
@@ -36,7 +37,7 @@ void ASpaceInvaderPawn::Destroyed()
 }
 
 // Called when the game starts or when spawned
-void ASpaceInvaderPawn::BeginPlay()
+void ASpaceInvaderPlayer::BeginPlay()
 {
 	Super::BeginPlay();
 	if (IsValid(HealthComponent))
@@ -46,20 +47,20 @@ void ASpaceInvaderPawn::BeginPlay()
 	}
 }
 
-void ASpaceInvaderPawn::OnOverlapBegin(AActor* OverlappedActor, AActor* OtherActor)
+void ASpaceInvaderPlayer::OnOverlapBegin(AActor* OverlappedActor, AActor* OtherActor)
 {
 	if (OtherActor && OtherActor != this) UGameplayStatics::ApplyDamage(OtherActor,1.0f,nullptr, this, nullptr);
 }
 
 // Called every frame
-void ASpaceInvaderPawn::Tick(float DeltaTime)
+void ASpaceInvaderPlayer::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
 }
 
 // Called to bind functionality to input
-void ASpaceInvaderPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
+void ASpaceInvaderPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 

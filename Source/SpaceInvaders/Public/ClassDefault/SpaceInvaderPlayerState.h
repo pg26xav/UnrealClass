@@ -3,7 +3,6 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Components/Components/SIScoreComponent.h"
 #include "GameFramework/PlayerState.h"
 #include "SpaceInvaderPlayerState.generated.h"
 
@@ -17,8 +16,4 @@ class SPACEINVADERS_API ASpaceInvaderPlayerState : public APlayerState
 
 public:
 	ASpaceInvaderPlayerState(const FObjectInitializer& ObjectInitializer);
-
-	UPROPERTY(BlueprintReadOnly)
-	TObjectPtr<USIScoreComponent> ScoreComponent;
-	
 };

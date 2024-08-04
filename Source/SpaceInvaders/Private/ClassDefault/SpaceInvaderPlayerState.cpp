@@ -5,5 +5,4 @@
 
 ASpaceInvaderPlayerState::ASpaceInvaderPlayerState(const FObjectInitializer& ObjectInitializer)
 {
-	ScoreComponent = CreateDefaultSubobject<USIScoreComponent>(TEXT("Score Component"));
 }

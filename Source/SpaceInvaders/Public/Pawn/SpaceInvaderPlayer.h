@@ -3,23 +3,24 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "InputAction.h"
-#include "InputActionValue.h"
-#include "Components/SIHealthComponent.h"
-#include "GameFramework/Pawn.h"
-#include "Spawners/Bullet.h"
-#include "SpaceInvaderPawn.generated.h"
+#include "GameFramework/Character.h"
+#include "SpaceInvaderPlayer.generated.h"
+
+struct FInputActionValue;
+class ABullet;
+class UInputAction;
+class USIHealthComponent;
 
 UCLASS()
-class SPACEINVADERS_API ASpaceInvaderPawn : public APawn
+class SPACEINVADERS_API ASpaceInvaderPlayer : public ACharacter
 {
 	GENERATED_BODY()
 
 public:
 	// Sets default values for this pawn's properties
-	ASpaceInvaderPawn();
+	ASpaceInvaderPlayer();
 
-	UFUNCTION(Server, Reliable)
+	UFUNCTION()
 	void Shoot(const FInputActionValue& Value);
 
 	UPROPERTY(BlueprintReadOnly)
