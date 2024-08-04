@@ -13,5 +13,14 @@ UCLASS()
 class SPACEINVADERS_API ASpaceInvaderGameStateBase : public AGameStateBase
 {
 	GENERATED_BODY()
-	
+
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	TSubclassOf<UUserWidget> EndScreen;
+
+	UFUNCTION(BlueprintCallable, Server, Reliable)
+	void EndGame();
+
+	UFUNCTION(NetMulticast, Reliable)
+	void EndGameClient();
 };

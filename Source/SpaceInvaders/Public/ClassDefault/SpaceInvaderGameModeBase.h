@@ -15,5 +15,5 @@ class SPACEINVADERS_API ASpaceInvaderGameModeBase : public AGameModeBase
 	GENERATED_BODY()
 
 public:
-	ASpaceInvaderGameModeBase();
+	ASpaceInvaderGameModeBase(const FObjectInitializer& ObjectInitializer);
 };

@@ -10,8 +10,11 @@ public class SpaceInvaders : ModuleRules
             new string[]
             {
                 "Core",
+                "CoreUObject",
+                "Engine",
                 "EnhancedInput",
-                "InputCore"
+                "InputCore",
+                "UMG"
             }
         );
 
@@ -21,7 +24,8 @@ public class SpaceInvaders : ModuleRules
                 "CoreUObject",
                 "Engine",
                 "Slate",
-                "SlateCore"
+                "SlateCore",
+                "UMG"
             }
         );
     }
