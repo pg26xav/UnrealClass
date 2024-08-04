@@ -2,10 +2,8 @@
 
 
 #include "ClassDefault/SpaceInvaderPawn.h"
-#include "Spawners/Bullet.h"
+
 #include "EnhancedInputComponent.h"
-#include "EnhancedInputSubsystems.h"
-#include "Components/SIHealthComponent.h"
 #include "ClassDefault/SpaceInvaderGameStateBase.h"
 #include "Kismet/GameplayStatics.h"
 
@@ -16,7 +14,7 @@ ASpaceInvaderPawn::ASpaceInvaderPawn()
 	PrimaryActorTick.bCanEverTick = true;
 	HealthComponent = CreateDefaultSubobject<USIHealthComponent>(TEXT("Health Component"));
 	HealthComponent->SetIsReplicated(true);
-	ShootPOS = CreateDefaultSubobject<USceneComponent>(TEXT("Shoot POS"));
+	ShootPOS = CreateDefaultSubobject<USceneComponent>(TEXT("Shot POS"));
 	ShootPOS->SetupAttachment(RootComponent);
 	
 }

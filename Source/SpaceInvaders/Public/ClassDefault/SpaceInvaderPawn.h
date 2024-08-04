@@ -3,14 +3,12 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "InputAction.h"
+#include "InputActionValue.h"
+#include "Components/SIHealthComponent.h"
 #include "GameFramework/Pawn.h"
+#include "Spawners/Bullet.h"
 #include "SpaceInvaderPawn.generated.h"
-
-
-class USIHealthComponent;
-class ABullet;
-class USceneComponent;
-class UInputAction;
 
 UCLASS()
 class SPACEINVADERS_API ASpaceInvaderPawn : public APawn
